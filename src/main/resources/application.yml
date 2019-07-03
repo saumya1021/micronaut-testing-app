@@ -1,0 +1,10 @@
+micronaut:
+  application:
+    name: testing-app
+
+  router:
+    static-resources:
+    default:
+    enabled: true
+    mapping: "/public/**"
+    paths: "classpath:public"
