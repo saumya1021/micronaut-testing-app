@@ -16,8 +16,13 @@ class HomeController {
 
     @Get("/login")
     @View("/login")
-    HttpResponse login(){
+    HttpResponse login() {
         return HttpResponse.ok()
     }
 
+   @Get("/registration")
+    @View("/registration")
+    HttpResponse registration(){
+       return HttpResponse.ok()
+   }
 }
