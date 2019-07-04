@@ -4,7 +4,7 @@ micronaut:
 
   router:
     static-resources:
-    default:
-    enabled: true
-    mapping: "/public/**"
-    paths: "classpath:public"
+      default:
+        enabled: true
+        mapping: "/public/**"
+        paths: "classpath:public"
