@@ -32,4 +32,9 @@ class HomeController {
     HttpResponse grid(){
         return ok()
     }
+    @Get("/autowidth")
+    @View("/autowidth")
+    HttpResponse autowidth(){
+        return ok()
+    }
 }
