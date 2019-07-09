@@ -32,7 +32,37 @@
     </div>
 </div>
 
-<script src="/public/js/jquery.js"></script>
-<script src="/public/js/bootstrap.min.js"></script>
+
 </body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<script>
+
+    $("#btn1").on("click",function(){
+
+    var username= $("#user").val();
+    var password=$("#pass").val();
+
+    var flag=false;
+
+    $(".error").remove();
+    if (username.length<1)
+    {
+    flag=false;
+    $("#user").after('<span class="error"> This is the required field </span>');
+    }
+    if(password.length<8){
+    flag=false;
+    $("#pass").after('<span class="error">password must be of 8 characters</span>');
+    }
+
+
+
+
+
+    });
+
+
+
+</script>
 </html>

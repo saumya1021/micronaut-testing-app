@@ -3,61 +3,145 @@
 <head>
     <meta charset="UTF-8">
     <title>registration</title>
-    <style>
-    .mydiv{
-            margin-top:169px;
-            margin-left: 421px;
-            padding:10px;
-            border:1px solid #CCC;
-            max-width:500px;
 
-    }
-    .divs{
-            padding:10px;
-            text-align:center;
-
-
-    }
-    .btn1{
-            background-color: #6fc39a;
-            border: none;
-            color: white;
-            padding: 15px 32px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 13px;
-        }
-
-
-
-    </style>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/public/css/style.css"/>
 </head>
 <body>
-<div class="mydiv">
-    <h2><center>Registration form</center>  </h2>
-    <div class="divs">
-        <label>First Name</label>
-        <input type="text" class="div1" placeholder="enter your fname"/>
-    </div>
-    <div class="divs">
-        <label>Last Name</label>
-        <input type="text" class="div1" placeholder="enter your lname"/>
-    </div>
-    <div class="divs">
-        <label>UserName</label>
-        <input type="text" class="div1" placeholder="enter username"/>
-    </div>
-    <div class="divs">
-        <label>Password</label>
-        <input type="password" class="div1" placeholder="enter your name"/>
-    </div>
-    <div class="divs">
-        <button class="btn1" type="submit">submit</button>
-
+<div class="container text-center ">
+    <div class="alert alert-success" role="alert" id="al1">
+        <strong>Well done!</strong> You successfully registered.
     </div>
 
+    <h2 class="margin-top">
+        <center>Registration form</center>
+    </h2>
+    <div class="row">
+        <div class="form-group col-md-4">
+            <label for="fn">First Name</label>
+        </div>
+        <div class="form-group col-md-8">
+            <input type="text" class="form-control width50" id="fn" placeholder="enter your fname">
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group col-md-4">
+            <label>Last Name</label>
+        </div>
+        <div class="form-group col-md-8">
+            <input type="text" class="form-control width50" id="ln" placeholder="enter your lname">
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group col-md-4">
+            <label>UserName</label>
+        </div>
+        <div class="form-group col-md-8">
+            <input type="text" class="form-control width50 " id="un" placeholder="enter username">
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group col-md-4">
+            <label>Password</label>
+        </div>
+        <div class="form-group col-md-8">
+            <input type="password" class="form-control width50" id="pass" placeholder="enter your password">
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group col-md-4">
+            <label>Confirm Password</label>
+        </div>
+        <div class="form-group col-md-8">
+            <input type="password" class="form-control width50" id="pass1" placeholder="Retype your password">
+        </div>
+    </div>
+    <div class="divs">
+        <input type="submit" class="btn btn-success" data-dismiss="alert" id="btn1" value="submit">
+
+    </div>
 
 </div>
 </body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<script>
+$(document).ready(function(){
+$("#al1").hide();
+});
+$("#btn1").on("click",function(){
+	var first_name=$("#fn").val();
+	var last_name=$("#ln").val();
+	var user_name=$("#un").val();
+	var password=$("#pass").val();
+	var con_passwrd=$("#pass1").val();
+	var isValid = true;
+	$(".error").remove();
+
+		if(first_name.length<1)
+		{
+			isValid = false;
+			$("#fn").after('<span class="error"> this is the required field</span>');
+		}
+	if(last_name.length<1)
+	{
+	isValid = false;
+		$("#ln").after('<span class="error"> this is the required field</span>');
+	}
+	if(user_name.length<1)
+	{
+	isValid = false;
+		$("#un").after('<span class="error"> this is the required field</span>');
+	}
+	if(password.length<8)
+	{
+	isValid = false;
+		$("#pass").after('<span class="error">Password should be of 8 characters long and required 1 special and numeric characters</span>');
+    }
+
+
+	if(con_passwrd.length==0)
+	{
+	isValid = false;
+		$("#pass1").after('<span class="error"> this is the required field</span>');
+	}
+	if(checkPassword(password)==false){
+		$("#pass").after('<span class="error"> </span>')
+
+	}
+	if(password!=con_passwrd){
+	isValid = false;
+		$("#pass1").after('<span class="error"> password does not match</span>');
+	}
+
+
+	if(isValid == true){
+
+		$("#al1").show();
+
+
+	}
+
+
+});
+
+function checkPassword(password){
+ //regular expression for password
+    var pattern = /^.*(?=.{8,})(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%&]).*$/;
+    if(pattern.test(password)){
+        return true;
+    }else{
+        return false;
+		}
+}
+
+
+
+
+
+
+
+
+</script>
 </html>

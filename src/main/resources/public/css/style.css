@@ -65,6 +65,23 @@
     height: 60px;
     background-color: blue;
 }
+.error
+	{
+	    color: red;
+	    margin-left: 5px;
+	}
+
+label.error
+	{
+	    display: inline;
+	}
+.margin-top{
+	    margin-top: 27px;
+         margin-bottom: 70px;
+}
+.width50{
+	    width:50%;
+}
 .margin-top{
 margin-top:25px;
 padding:50px;
