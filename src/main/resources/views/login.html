@@ -10,7 +10,7 @@
 <div class="mydiv">
     <div class="divs">
         <label>Username</label>
-        <input type="text" id="t1"/>
+        <input type="text" id="user"/>
     </div>
 
     <div class="divs">
@@ -19,9 +19,40 @@
     </div>
 
     <div class="divs">
-        <button type="submit" class="btn1">submit</button>
-        <a href="#">new user</a>
+        <button type="submit" class="btn1" id="btn1">submit</button>
+        <a href="#">Register</a>
     </div>
 </div>
 </body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<script>
+
+    $("#btn1").on("click",function(){
+
+    var username= $("#user").val();
+    var password=$("#pass").val();
+
+    var flag=false;
+
+    $(".error").remove();
+    if (username.length<1)
+    {
+    flag=false;
+    $("#user").after('<span class="error"> This is the required field </span>');
+    }
+    if(password.length<8){
+    flag=false;
+    $("#pass").after('<span class="error">password must be of 8 characters</span>');
+    }
+
+
+
+
+
+    });
+
+
+
+</script>
 </html>
