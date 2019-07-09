@@ -3,7 +3,7 @@
 <head>
 
     <meta charset="UTF-8">
-    <title>grid</title>
+    <title>Login</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">  <!---this tag is used for interactuive internet explorer-->
@@ -15,20 +15,22 @@
 <body>
 
 <div class="container text-center cbox">
-    <h1 class="margin-top">Login Page</h1>
+    <h1 class="margin-top">Sign-In</h1>
     <div class="form-group login_box_centre">
 
         <input type="text" for="username" class="form-control width25" id="username" placeholder="Username"/>
+        <span class="error position_abs" id="usernameError"></span>
     </div>
 
     <div class="form-group login_box_centre">
 
         <input type="password" class="form-control width25" id="password" for="password" placeholder="Password"/>
+        <span class="error position_abs" id="passwordError"></span>
     </div>
 
     <div class="divs">
-        <button type="button" class="btn btn-success"  id="btn1">Submit</button>
-        <a href="#">Register </a>
+        <button type="button" class="btn btn-success" id="btn1">Submit</button>
+        <a href="/home/registration">Register </a>
     </div>
 </div>
 
@@ -37,30 +39,28 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 <script>
-
-    $("#btn1").on("click",function(){
-
-    var username= $("#user").val();
-    var password=$("#pass").val();
-
-    var flag=false;
-
-    $(".error").remove();
-    if (username.length<1)
-    {
-    flag=false;
-    $("#user").after('<span class="error"> This is the required field </span>');
-    }
-    if(password.length<8){
-    flag=false;
-    $("#pass").after('<span class="error">password must be of 8 characters</span>');
-    }
-
-
-
-
+     $(document).ready(function(){
 
     });
+    $("#btn1").on("click",function(){
+
+        var username= $("#username").val();
+        var password=$("#password").val();
+
+        var flag=false;
+
+
+        if (username.length<1)
+        {
+            flag=false;
+            $("#usernameError").text(" This is the required field");
+        }
+        if(password.length<8){
+            flag=false;
+            $("#passwordError").text(" This is the required field");
+        }
+    });
+
 
 
 
