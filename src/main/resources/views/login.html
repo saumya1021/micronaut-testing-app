@@ -1,28 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
-    <title>Login Page</title>
+    <title>grid</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">  <!---this tag is used for interactuive internet explorer-->
+    <link rel="stylesheet" href="/public/css/bootstrap.min.css">
     <link rel="stylesheet" href="/public/css/style.css"/>
+    <script src="/public/js/jquery.js"></script>
+    <script src="/public/js/main.js"></script>
 </head>
 <body>
 
-<div class="mydiv">
-    <div class="divs">
-        <label>Username</label>
-        <input type="text" id="user"/>
+<div class="container text-center cbox">
+    <h1 class="margin-top">Login Page</h1>
+    <div class="form-group login_box_centre">
+
+        <input type="text" for="username" class="form-control width25" id="username" placeholder="Username"/>
+    </div>
+
+    <div class="form-group login_box_centre">
+
+        <input type="password" class="form-control width25" id="password" for="password" placeholder="Password"/>
     </div>
 
     <div class="divs">
-        <label>Password</label>
-        <input type="password" id="pass">
-    </div>
-
-    <div class="divs">
-        <button type="submit" class="btn1" id="btn1">submit</button>
-        <a href="#">Register</a>
+        <button type="button" class="btn btn-success"  id="btn1">Submit</button>
+        <a href="#">Register </a>
     </div>
 </div>
+
+
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>

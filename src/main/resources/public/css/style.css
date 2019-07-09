@@ -35,7 +35,8 @@
 
 }
 .cbox{
-    border: 3px solid;
+    border: none;
+    height:100%;
 
 }.arow{
     border: 10px solid yellow;
@@ -80,4 +81,21 @@ label.error
 }
 .width50{
 	    width:50%;
+}
+.margin-top{
+margin-top:25px;
+padding:50px;
+}
+.margin-bottom{
+margin-bottom:50px;
+}
+
+.form-group.login_box_centre {
+    margin: 18px 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.width25 {
+    width: 25%;
 }
