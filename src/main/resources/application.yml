@@ -8,3 +8,22 @@ micronaut:
         enabled: true
         mapping: "/public/**"
         paths: "classpath:public"
+
+
+hibernate:
+  hbm2ddl:
+    auto: create-drop
+    #schema_filter_provider: goloca.hibernate.CustomSchemaProvider
+  cache:
+    queries: false
+    use_second_level_cache: false
+    use_query_cache: false
+    #region.factory_class: org.hibernate.cache.ehcache.SingletonEhCacheRegionFactory
+
+dataSource:
+  pooled: true
+  jmxExport: true
+  driverClassName: org.postgresql.Driver
+  url: "jdbc:postgresql://localhost:5432/testdb"
+  username: "postgres"
+  password: "root"
