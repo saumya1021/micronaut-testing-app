@@ -16,46 +16,50 @@
     <h2 class="margin-top">
         <center>Registration form</center>
     </h2>
-    <div class="row">
 
-        <div class="form-group login_box_centre">
-            <input type="text" class="form-control width50" id="fn" placeholder="First Name">
-            <span class="error position_abs" id="firstName"></span>
+    <form method="POST" action="/user/create">
+        <div class="row">
+
+            <div class="form-group login_box_centre">
+                <input type="text" name="firstName" class="form-control width50" id="fn" placeholder="First Name">
+                <span class="error position_abs" id="firstName"></span>
+            </div>
         </div>
-    </div>
-    <div class="row">
+        <div class="row">
 
-        <div class="form-group login_box_centre">
-            <input type="text" class="form-control width50" id="ln" placeholder="Last Name">
-            <span class="error position_abs" id="lastname"></span>
+            <div class="form-group login_box_centre">
+                <input type="text" name="lastName" class="form-control width50" id="ln" placeholder="Last Name">
+                <span class="error position_abs" id="lastname"></span>
+            </div>
         </div>
-    </div>
-    <div class="row">
+        <div class="row">
 
-        <div class="form-group login_box_centre">
-            <input type="text" class="form-control width50 " id="un" placeholder="User Name">
-            <span class="error position_abs " id="username"></span>
+            <div class="form-group login_box_centre">
+                <input type="text" name="username" class="form-control width50 " id="un" placeholder="User Name">
+                <span class="error position_abs " id="username"></span>
+            </div>
         </div>
-    </div>
-    <div class="row">
+        <div class="row">
 
-        <div class="form-group login_box_centre">
-            <input type="password" class="form-control width50" id="pass" placeholder="Password">
-            <span class="error  position_abs" id="password"></span>
+            <div class="form-group login_box_centre">
+                <input type="password" name="password" class="form-control width50" id="pass" placeholder="Password">
+                <span class="error  position_abs" id="password"></span>
+            </div>
         </div>
-    </div>
-    <div class="row">
+        <div class="row">
 
-        <div class="form-group login_box_centre">
-            <input type="password" class="form-control width50" id="pass1" placeholder="Confirm Password">
-            <span class="error position_abs" id="passw1"></span>
+            <div class="form-group login_box_centre">
+                <input type="password" name="confirmPassword" class="form-control width50" id="pass1"
+                       placeholder="Confirm Password">
+                <span class="error position_abs" id="passw1"></span>
+            </div>
         </div>
-    </div>
-    <div class="divs">
-        <input type="submit" class="btn btn-success" data-dismiss="alert" id="btn1" value="submit">
+        <div class="divs">
 
-    </div>
+            <input type="submit" name="submit" class="btn btn-success" id="btn1" value="Submit">
 
+        </div>
+    </form>
 </div>
 </body>
 
@@ -125,7 +129,6 @@ $("#btn1").on("click",function(){
             $("#al1").show();
         }
 
-
 });
 
 function checkPassword(password){
@@ -137,14 +140,6 @@ function checkPassword(password){
         return false;
 		}
 }
-
-
-
-
-
-
-
-
 
 </script>
 </html>

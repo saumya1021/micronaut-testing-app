@@ -9,6 +9,9 @@ class User {
     String firstName
     String lastName
     String password
+    Boolean isActive
+    Date dateCreated
+    Date lastUpdated
 
     static mapping = {
         table name: 'app_user'
@@ -16,6 +19,7 @@ class User {
 
     static constraints = {
         lastName nullable: true
+        username unique: true
     }
 
 
