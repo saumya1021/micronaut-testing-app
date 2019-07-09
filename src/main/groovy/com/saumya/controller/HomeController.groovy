@@ -22,19 +22,21 @@ class HomeController {
         return ok()
     }
 
-   @Get("/registration")
+    @Get("/registration")
     @View("/registration")
-    HttpResponse registration(){
-       return ok()
-   }
-    @Get("/grid")
-    @View("/grid")
-    HttpResponse grid(){
+    HttpResponse registration() {
         return ok()
     }
+
+    @Get("/grid")
+    @View("/grid")
+    HttpResponse grid() {
+        return ok()
+    }
+
     @Get("/autowidth")
     @View("/autowidth")
-    HttpResponse autowidth(){
+    HttpResponse autowidth() {
         return ok()
     }
 }

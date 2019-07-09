@@ -77,10 +77,10 @@ label.error
 	}
 .margin-top{
 	    margin-top: 27px;
-         margin-bottom: 70px;
+         margin-bottom: 2px;
 }
 .width50{
-	    width:50%;
+	    width:30%;
 }
 .margin-top{
 margin-top:25px;
@@ -98,4 +98,12 @@ margin-bottom:50px;
 }
 .width25 {
     width: 25%;
+}
+
+.position_abs {
+    float: right;
+    width: 100%;
+    position: absolute;
+    margin-top: 30px;
+    right: 96px;
 }
