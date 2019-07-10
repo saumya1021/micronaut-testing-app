@@ -45,5 +45,10 @@ class HomeController {
     HttpResponse autowidth() {
         return ok()
     }
+    @Get("/profile")
+    @View("/profile")
+    HttpResponse profile() {
+        return ok()
+    }
 
 }

@@ -21,7 +21,7 @@ class UserController {
     UserService userService
 
     @Post(value = "/create{?registerCO*}", consumes = MediaType.APPLICATION_FORM_URLENCODED, produces = MediaType.APPLICATION_JSON)
-    HttpResponse register(RegisterCO registerCO) {
+    HttpResponse register(RegisterCO registerCO ) {
         Map map = userService.save(registerCO)
         return HttpResponse.redirect(URI.create("/home/registration"))
     }

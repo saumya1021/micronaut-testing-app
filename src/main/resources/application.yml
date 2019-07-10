@@ -12,7 +12,7 @@ micronaut:
 
 hibernate:
   hbm2ddl:
-    auto: create-drop
+    auto: update
     #schema_filter_provider: goloca.hibernate.CustomSchemaProvider
   cache:
     queries: false

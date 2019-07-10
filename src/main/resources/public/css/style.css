@@ -107,3 +107,16 @@ margin-bottom:50px;
     margin-top: 30px;
     right: 96px;
 }
+
+.element {
+    margin-top: 103px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+.modal-title.position_abs{
+         margin-top: 0;
+         right: 0;
+}
+
