@@ -9,10 +9,24 @@ import grails.gorm.transactions.Transactional
 class ProductService {
 
     @Transactional
-    Map save(ProductCO productCO) {
+    void save(ProductCO productCO) {
         Product product = new Product(name: productCO.name, model: productCO.model, price: productCO.price, isActive: true)
         product.save()
-        return [:]
+    }
+
+    @Transactional
+    Map fetchProductList() {
+        List<Product> productList = Product.list()
+        return [productList: productList]
+    }
+
+    @Transactional
+    void updateProduct(Long productId, String productName, String productModel, Long productPrice) {
+        Product product = Product.get(productId)
+        product.price = productPrice
+        product.model = productModel
+        product.name = productName
+        product.save()
     }
 
 }
