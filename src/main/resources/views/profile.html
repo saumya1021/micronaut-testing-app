@@ -7,9 +7,6 @@
     <link rel="stylesheet" href="/public/css/bootstrap.min.css">
     <link rel="stylesheet" href="/public/css/style.css"/>
 
-    <script src="/public/js/jquery.js"></script>
-    <script src="/public/js/main.js"></script>
-    <script src="/public/js/bootstrap.min.js"></script>
 </head>
 <body>
 <div class="container">
@@ -29,16 +26,14 @@
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <td>1</td>
-                <td>Car</td>
-                <td>C123</td>
-                <td>56k</td>
+            <tr data-th-each="product : ${productList}">
+                <td id="a1" data-th-text="${product.id}"></td>
+                <td data-th-text="${product.name}"></td>
+                <td data-th-text="${product.model}"></td>
+                <td data-th-text="${product.price}"></td>
                 <td>
-                    <button type="button" id="btn3">Edit</button>
-                    <button type="button" id="btn4">Delete</button>
-
-
+                    <button type="submit" class="btn btn-warning"id="edit" data-toggle="modal" data-target="#editModal" onclick="getTableData(this);">Edit</button>
+                    <button type="button" class="btn btn-danger" id="delete">Delete</button>
                 </td>
             </tr>
             </tbody>
@@ -57,14 +52,14 @@
                 <div class="modal-body">
                     <form id="productDetails" method="post" action="/product/add">
                         <div>
-                            <input type="text" id="txt1" class="form-control" name="name" placeholder="Product Name">
+                            <input type="text" id="name" class="form-control" name="name" placeholder="Product Name">
                         </div>
                         <div>
-                            <input type="text" class="form-control" id="txt2" name="model"
+                            <input type="text" class="form-control" id="model" name="model"
                                    placeholder="Product Model">
                         </div>
                         <div>
-                            <input type="text" class="form-control " id="txt3" name="price" placeholder="Price">
+                            <input type="text" class="form-control " id="price" name="price" placeholder="Price">
                         </div>
                         <div>
                             <button type="submit" class="btn btn-success" id="btn2">Save</button>
@@ -79,18 +74,55 @@
         </div>
     </div>
 
+    <!--Edit Modal--!-->
+      <div id="editModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+
+
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h6 class="modal-title position_abs">Edit Details</h6>
+        </div>
+        <div class="modal-body">
+            <form id="updateProduct" method="post" action="/product/update">
+                <div >
+                    <input type="hidden" class="form-control" id="productId" name="productId" >
+                </div>
+                <div>
+                    <input type="text" id="productName" class="form-control" name="productName" placeholder="Product Name">
+                </div>
+
+                <div>
+                    <input type="text" class="form-control" id="productModel" name="productModel"
+                           placeholder="Product Model">
+                </div>
+                <div>
+                    <input type="text" class="form-control " id="productPrice" name="productPrice" placeholder="Price">
+                </div>
+                <div>
+                    <button type="submit" class="btn btn-success" id="update" >update</button>
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button type="submit" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+    </div>
+
+</div>
 </div>
 
 
+
+</div>
+
+<script src="/public/js/jquery.js"></script>
+<script src="/public/js/main.js"></script>
+<script src="/public/js/bootstrap.min.js"></script>
+
 </body>
 
-<script>
-    /*$("#btn2").on("click",function(){
-        $("#productDetails").submit();
 
-    });*/
-
-
-
-</script>
 </html>

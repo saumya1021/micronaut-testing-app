@@ -18,7 +18,15 @@ class ProductController {
 
     @Post(value = "/add{?productCO*}", consumes = MediaType.APPLICATION_FORM_URLENCODED)
     HttpResponse add(ProductCO productCO) {
-        Map map = productService.save(productCO)
+        productService.save(productCO)
         return HttpResponse.redirect(URI.create("/home/profile"))
     }
+
+    @Post(value = "/update", consumes = MediaType.APPLICATION_FORM_URLENCODED)
+    HttpResponse update(Long productId, String productName, String productModel, Long productPrice) {
+        productService.updateProduct(productId, productName, productModel, productPrice)
+        return HttpResponse.redirect(URI.create("/home/profile"))
+    }
+
+
 }
