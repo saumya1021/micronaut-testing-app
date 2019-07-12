@@ -15,6 +15,4 @@ function getTableData(currentObject){
 function deleteData(currentObject){
     var a=$(currentObject).closest('tr');
     $("#deleteId").val(a.find('td:eq(0)').text());
-    $('#deleteForm').submit();
-
 }
