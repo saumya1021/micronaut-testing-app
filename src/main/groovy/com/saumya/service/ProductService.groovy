@@ -16,9 +16,7 @@ class ProductService {
 
     @Transactional
     Map fetchProductList() {
-        List<Product> productList = Product.list()
-        //  productList.findByisActive("true")
-
+        List<Product> productList = Product.findAllByIsActive(true) as List<Product>
         return [productList: productList]
     }
 

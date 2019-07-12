@@ -26,7 +26,7 @@
             </tr>
             </thead>
             <tbody>
-            <tr data-th-each="product : ${productList}">
+            <tr data-th-each="product,i : ${productList}">
                 <td id="a1" data-th-text="${product.id}"></td>
                 <td data-th-text="${product.name}"></td>
                 <td data-th-text="${product.model}"></td>
