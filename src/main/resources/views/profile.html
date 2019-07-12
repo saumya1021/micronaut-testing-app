@@ -35,11 +35,11 @@
                     <button type="submit" class="btn btn-warning" id="edit" data-toggle="modal" data-target="#editModal"
                             onclick="getTableData(this);">Edit
                     </button>
-                    <form id="deleteForm" method="post" action="/product/delete">
-                        <input type="hidden" id="deleteId" name="deleteId">
-                        <button type="button" class="btn btn-danger" id="delete" onclick="deleteData(this);">Delete
-                        </button>
-                    </form>
+
+                    <button type="button" class="btn btn-danger" id="delete" data-toggle="modal"
+                            onclick="deleteData(this)"
+                            data-target="#deleteModal">Delete
+                    </button>
                 </td>
             </tr>
             </tbody>
@@ -122,6 +122,34 @@
     </div>
 
 
+    <!--Delete Confirmation modal-!-->
+
+    <div id="deleteModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h6 class="modal-title position_abs">Confirm</h6>
+                </div>
+                <div class="modal-body">
+                    <p> Are you sure </p>
+
+                </div>
+                <div class="modal-footer">
+                    <form id="deleteForm" method="post" action="/product/delete">
+                        <input type="hidden" id="deleteId" name="deleteId">
+                        <input value="OK" type="submit" class="btn btn-success">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
 </div>
 
 <script src="/public/js/jquery.js"></script>
@@ -129,6 +157,4 @@
 <script src="/public/js/bootstrap.min.js"></script>
 
 </body>
-
-
 </html>
