@@ -17,6 +17,8 @@ class ProductService {
     @Transactional
     Map fetchProductList() {
         List<Product> productList = Product.list()
+        //  productList.findByisActive("true")
+
         return [productList: productList]
     }
 
@@ -29,4 +31,10 @@ class ProductService {
         product.save()
     }
 
+    @Transactional
+    void deleteProduct(Long productId) {
+        Product product = Product.get(productId)
+        product.delete()
+
+    }
 }

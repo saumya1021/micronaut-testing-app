@@ -11,7 +11,7 @@ class Product {
     Date dateCreated
     Date lastUpdated
 
-    static constraints={
-        price nullable:true
+    static constraints = {
+        price nullable: true
     }
 }

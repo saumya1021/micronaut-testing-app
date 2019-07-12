@@ -5,7 +5,6 @@ import com.saumya.service.ProductService
 import io.micronaut.http.HttpResponse
 import io.micronaut.http.MediaType
 import io.micronaut.http.annotation.Controller
-import io.micronaut.http.annotation.Get
 import io.micronaut.http.annotation.Post
 
 import javax.inject.Inject
@@ -25,6 +24,12 @@ class ProductController {
     @Post(value = "/update", consumes = MediaType.APPLICATION_FORM_URLENCODED)
     HttpResponse update(Long productId, String productName, String productModel, Long productPrice) {
         productService.updateProduct(productId, productName, productModel, productPrice)
+        return HttpResponse.redirect(URI.create("/home/profile"))
+    }
+
+    @Post(value = "/delete", consumes = MediaType.APPLICATION_FORM_URLENCODED)
+    HttpResponse delete(Long deleteId) {
+        productService.deleteProduct(deleteId)
         return HttpResponse.redirect(URI.create("/home/profile"))
     }
 

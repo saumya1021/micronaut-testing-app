@@ -32,8 +32,14 @@
                 <td data-th-text="${product.model}"></td>
                 <td data-th-text="${product.price}"></td>
                 <td>
-                    <button type="submit" class="btn btn-warning"id="edit" data-toggle="modal" data-target="#editModal" onclick="getTableData(this);">Edit</button>
-                    <button type="button" class="btn btn-danger" id="delete">Delete</button>
+                    <button type="submit" class="btn btn-warning" id="edit" data-toggle="modal" data-target="#editModal"
+                            onclick="getTableData(this);">Edit
+                    </button>
+                    <form id="deleteForm" method="post" action="/product/delete">
+                        <input type="hidden" id="deleteId" name="deleteId">
+                        <button type="button" class="btn btn-danger" id="delete" onclick="deleteData(this);">Delete
+                        </button>
+                    </form>
                 </td>
             </tr>
             </tbody>
@@ -75,45 +81,45 @@
     </div>
 
     <!--Edit Modal--!-->
-      <div id="editModal" class="modal fade" role="dialog">
+    <div id="editModal" class="modal fade" role="dialog">
         <div class="modal-dialog">
 
 
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h6 class="modal-title position_abs">Edit Details</h6>
+                </div>
+                <div class="modal-body">
+                    <form id="updateProduct" method="post" action="/product/update">
+                        <div>
+                            <input type="hidden" class="form-control" id="productId" name="productId">
+                        </div>
+                        <div>
+                            <input type="text" id="productName" class="form-control" name="productName"
+                                   placeholder="Product Name">
+                        </div>
 
-    <div class="modal-content">
-        <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
-            <h6 class="modal-title position_abs">Edit Details</h6>
-        </div>
-        <div class="modal-body">
-            <form id="updateProduct" method="post" action="/product/update">
-                <div >
-                    <input type="hidden" class="form-control" id="productId" name="productId" >
+                        <div>
+                            <input type="text" class="form-control" id="productModel" name="productModel"
+                                   placeholder="Product Model">
+                        </div>
+                        <div>
+                            <input type="text" class="form-control " id="productPrice" name="productPrice"
+                                   placeholder="Price">
+                        </div>
+                        <div>
+                            <button type="submit" class="btn btn-success" id="update">update</button>
+                        </div>
+                    </form>
                 </div>
-                <div>
-                    <input type="text" id="productName" class="form-control" name="productName" placeholder="Product Name">
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-default" data-dismiss="modal">Close</button>
                 </div>
+            </div>
 
-                <div>
-                    <input type="text" class="form-control" id="productModel" name="productModel"
-                           placeholder="Product Model">
-                </div>
-                <div>
-                    <input type="text" class="form-control " id="productPrice" name="productPrice" placeholder="Price">
-                </div>
-                <div>
-                    <button type="submit" class="btn btn-success" id="update" >update</button>
-                </div>
-            </form>
-        </div>
-        <div class="modal-footer">
-            <button type="submit" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
     </div>
-
-</div>
-</div>
-
 
 
 </div>

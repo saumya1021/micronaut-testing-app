@@ -11,3 +11,10 @@ function getTableData(currentObject){
   $('#productPrice').val(col4);
   $("#productId").val(col1);
 }
+
+function deleteData(currentObject){
+    var a=$(currentObject).closest('tr');
+    $("#deleteId").val(a.find('td:eq(0)').text());
+    $('#deleteForm').submit();
+
+}
