@@ -34,8 +34,9 @@ class ProductService {
     @Transactional
     void deleteProduct(Long productId) {
         Product product = Product.get(productId)
-        product.isActive = false
-        product.save()
+//        product.isActive = false
+//        product.save()
+        product.delete()
 
     }
 }

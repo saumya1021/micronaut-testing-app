@@ -9,6 +9,26 @@ micronaut:
         mapping: "/public/**"
         paths: "classpath:public"
 
+  security:
+    enabled: true
+    endpoints:
+      login:
+        enabled: true
+      logout:
+        enabled: true
+    session:
+      enabled: true
+      login-success-target-url: /home/profile
+      login-failure-target-url: /home/authFailed
+      logout-success-target-url: /home/login
+
+    intercept-url-map:
+      - pattern: /public/**
+        http-method: GET
+        access:
+          - isAnonymous()
+
+
 
 hibernate:
   hbm2ddl:
@@ -27,3 +47,4 @@ dataSource:
   url: "jdbc:postgresql://localhost:5432/testdb"
   username: "postgres"
   password: "root"
+

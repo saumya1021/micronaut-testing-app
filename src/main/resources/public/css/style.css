@@ -110,6 +110,8 @@ margin-bottom:50px;
 
 .element {
     margin-top: 103px;
+
+    margin-bottom: 20px;
     text-align: center;
     display: flex;
     justify-content: center;
@@ -119,4 +121,6 @@ margin-bottom:50px;
          margin-top: 0;
          right: 0;
 }
-
+.lgout{
+margin-left:20px;
+}

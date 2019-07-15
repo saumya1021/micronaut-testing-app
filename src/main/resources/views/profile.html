@@ -4,15 +4,19 @@
     <meta charset="UTF-8">
     <title>Profile</title>
 
-    <link rel="stylesheet" href="/public/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/public/css/style.css"/>
+    <link href="/public/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/public/css/style.css" rel="stylesheet"/>
 
 </head>
 <body>
 <div class="container">
     <div class="element" id="button">
-        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal" id="btn1">Add+</button>
+        <button class="btn btn-success" data-target="#myModal" data-toggle="modal" id="btn1" type="button">Add+</button>
+        <form id="logoutbutton" method="post" action="logout" >
+        <button class="btn btn-danger"   value="/logout" type="submit">logout</button>
+        </form>
     </div>
+
     <div>
         <table class="table table-striped">
             <thead>
@@ -27,18 +31,18 @@
             </thead>
             <tbody>
             <tr data-th-each="product,i : ${productList}">
-                <td id="a1" data-th-text="${product.id}"></td>
+                <td data-th-text="${product.id}" id="a1"></td>
                 <td data-th-text="${product.name}"></td>
                 <td data-th-text="${product.model}"></td>
                 <td data-th-text="${product.price}"></td>
                 <td>
-                    <button type="submit" class="btn btn-warning" id="edit" data-toggle="modal" data-target="#editModal"
-                            onclick="getTableData(this);">Edit
+                    <button class="btn btn-warning" data-target="#editModal" data-toggle="modal" id="edit" onclick="getTableData(this);"
+                            type="submit">Edit
                     </button>
 
-                    <button type="button" class="btn btn-danger" id="delete" data-toggle="modal"
+                    <button class="btn btn-danger" data-target="#deleteModal" data-toggle="modal" id="delete"
                             onclick="deleteData(this)"
-                            data-target="#deleteModal">Delete
+                            type="button">Delete
                     </button>
                 </td>
             </tr>
@@ -46,34 +50,34 @@
         </table>
     </div>
 
-    <div id="myModal" class="modal fade" role="dialog">
+    <div class="modal fade" id="myModal" role="dialog">
         <div class="modal-dialog">
 
             <!-- Modal content-->
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <button class="close" data-dismiss="modal" type="button">&times;</button>
                     <h6 class="modal-title position_abs">Add Details</h6>
                 </div>
                 <div class="modal-body">
-                    <form id="productDetails" method="post" action="/product/add">
+                    <form action="/product/add" id="productDetails" method="post">
                         <div>
-                            <input type="text" id="name" class="form-control" name="name" placeholder="Product Name">
+                            <input class="form-control" id="name" name="name" placeholder="Product Name" type="text">
                         </div>
                         <div>
-                            <input type="text" class="form-control" id="model" name="model"
-                                   placeholder="Product Model">
+                            <input class="form-control" id="model" name="model" placeholder="Product Model"
+                                   type="text">
                         </div>
                         <div>
-                            <input type="text" class="form-control " id="price" name="price" placeholder="Price">
+                            <input class="form-control " id="price" name="price" placeholder="Price" type="text">
                         </div>
                         <div>
-                            <button type="submit" class="btn btn-success" id="btn2">Save</button>
+                            <button class="btn btn-success" id="btn2" type="submit">Save</button>
                         </div>
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button class="btn btn-default" data-dismiss="modal" type="submit">Close</button>
                 </div>
             </div>
 
@@ -81,40 +85,40 @@
     </div>
 
     <!--Edit Modal--!-->
-    <div id="editModal" class="modal fade" role="dialog">
+    <div class="modal fade" id="editModal" role="dialog">
         <div class="modal-dialog">
 
 
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <button class="close" data-dismiss="modal" type="button">&times;</button>
                     <h6 class="modal-title position_abs">Edit Details</h6>
                 </div>
                 <div class="modal-body">
-                    <form id="updateProduct" method="post" action="/product/update">
+                    <form action="/product/update" id="updateProduct" method="post">
                         <div>
-                            <input type="hidden" class="form-control" id="productId" name="productId">
+                            <input class="form-control" id="productId" name="productId" type="hidden">
                         </div>
                         <div>
-                            <input type="text" id="productName" class="form-control" name="productName"
-                                   placeholder="Product Name">
+                            <input class="form-control" id="productName" name="productName" placeholder="Product Name"
+                                   type="text">
                         </div>
 
                         <div>
-                            <input type="text" class="form-control" id="productModel" name="productModel"
-                                   placeholder="Product Model">
+                            <input class="form-control" id="productModel" name="productModel" placeholder="Product Model"
+                                   type="text">
                         </div>
                         <div>
-                            <input type="text" class="form-control " id="productPrice" name="productPrice"
-                                   placeholder="Price">
+                            <input class="form-control " id="productPrice" name="productPrice" placeholder="Price"
+                                   type="text">
                         </div>
                         <div>
-                            <button type="submit" class="btn btn-success" id="update">update</button>
+                            <button class="btn btn-success" id="update" type="submit">update</button>
                         </div>
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button class="btn btn-default" data-dismiss="modal" type="submit">Close</button>
                 </div>
             </div>
 
@@ -124,13 +128,13 @@
 
     <!--Delete Confirmation modal-!-->
 
-    <div id="deleteModal" class="modal fade" role="dialog">
+    <div class="modal fade" id="deleteModal" role="dialog">
         <div class="modal-dialog">
 
 
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <button class="close" data-dismiss="modal" type="button">&times;</button>
                     <h6 class="modal-title position_abs">Confirm</h6>
                 </div>
                 <div class="modal-body">
@@ -138,10 +142,10 @@
 
                 </div>
                 <div class="modal-footer">
-                    <form id="deleteForm" method="post" action="/product/delete">
-                        <input type="hidden" id="deleteId" name="deleteId">
-                        <input value="OK" type="submit" class="btn btn-success">
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    <form action="/product/delete" id="deleteForm" method="post">
+                        <input id="deleteId" name="deleteId" type="hidden">
+                        <input class="btn btn-success" type="submit" value="OK">
+                        <button class="btn btn-danger" data-dismiss="modal" type="button">Close</button>
                     </form>
                 </div>
             </div>

@@ -16,24 +16,30 @@
 
 <div class="container text-center cbox">
     <h1 class="margin-top">Sign-In</h1>
-    <form id="loginForm" method="POST" action="/profile/login">
+    <form id="loginForm" method="POST" action="/login">
 
-    <div class="form-group login_box_centre">
+        <div class="form-group login_box_centre">
 
-        <input type="text" for="username" class="form-control width25" name="username" id="username" placeholder="Username"/>
-        <span class="error position_abs" id="usernameError"></span>
-    </div>
+            <input type="text" for="username" class="form-control width25" name="username" id="username"
+                   placeholder="Username"/>
+            <span class="error position_abs" id="usernameError"></span>
+        </div>
 
-    <div class="form-group login_box_centre">
+        <div class="form-group login_box_centre">
 
-        <input type="password" class="form-control width25" id="password" name="password" for="password" placeholder="Password"/>
-        <span class="error position_abs" id="passwordError"></span>
-    </div>
+            <input type="password" class="form-control width25" id="password" name="password" for="password"
+                   placeholder="Password"/>
+            <span class="error position_abs" id="passwordError"></span>
+        </div>
 
-    <div class="divs">
-        <button type="button" class="btn btn-success" id="btn1">Submit</button>
-        <a href="/home/registration">Register </a>
-    </div>
+
+        <div class="divs">
+
+            <button type="button" class="btn btn-success" id="btn1">Submit</button>
+
+            <a href="/home/registration">Register </a>
+        </div>
+
     </form>
 </div>
 
@@ -42,14 +48,12 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 <script>
-
-    $("#btn1").on("click",function(){
+     $("#btn1").on("click",function(){
 
         var username= $("#username").val();
         var password=$("#password").val();
 
         var flag=true;
-
 
         if (username.length<1){
             flag=false;
@@ -59,11 +63,14 @@
             flag=false;
             $("#passwordError").text(" This is the required field");
         }
-        if(flag==true){
+         if(flag==true){
         $("#loginForm").submit();
         }
 
     });
+
+
+
 
 
 
