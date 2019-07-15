@@ -16,7 +16,7 @@
 
 <div class="container text-center cbox">
     <h1 class="margin-top">Sign-In</h1>
-    <form id="loginForm" method="POST" action="/profile/login">
+    <form id="loginForm" method="POST" action="/login">
 
     <div class="form-group login_box_centre">
 
@@ -30,10 +30,12 @@
         <span class="error position_abs" id="passwordError"></span>
     </div>
 
+
     <div class="divs">
-        <button type="button" class="btn btn-success" id="btn1">Submit</button>
+        <button type="submit" class="btn btn-success" id="btn1">Submit</button>
         <a href="/home/registration">Register </a>
     </div>
+
     </form>
 </div>
 
@@ -43,27 +45,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 <script>
 
-    $("#btn1").on("click",function(){
 
-        var username= $("#username").val();
-        var password=$("#password").val();
-
-        var flag=true;
-
-
-        if (username.length<1){
-            flag=false;
-            $("#usernameError").text(" This is the required field");
-        }
-        if(password.length<8){
-            flag=false;
-            $("#passwordError").text(" This is the required field");
-        }
-        if(flag==true){
-        $("#loginForm").submit();
-        }
-
-    });
 
 
 

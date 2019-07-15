@@ -23,10 +23,9 @@ class UserService {
     }
 
     @Transactional
-    boolean fetchUser(LoginCO loginco) {
-        User user = User.findByUsernameAndPassword(loginco.username, loginco.password.md5())
+    boolean fetchUser(String username,String password) {
+        User user = User.findByUsernameAndPassword(username, password.md5())
         if (user) {
-            println(user.username)
             return true
         } else {
             return false
